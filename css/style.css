@@ -1,3 +1,6 @@
+/* =======================
+   GLOBAL
+======================= */
 body {
   font-family: Arial, sans-serif;
   background: #f4f6f8;
@@ -8,33 +11,63 @@ body {
   margin: 0;
 }
 
+/* =======================
+   CONTAINER
+======================= */
 .container {
   background: white;
   padding: 25px;
   border-radius: 12px;
-  width: 350px;
+  width: 380px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  text-align: center;
+/* =======================
+   TITLE
+======================= */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-/* Input */
+.logo-icon {
+  font-size: 28px;
+}
+
+h1 {
+  margin: 0; /* penting supaya sejajar */
+}
+
+.logo-icon {
+  transition: 0.3s;
+}
+
+.logo-icon:hover {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+/* =======================
+   INPUT AREA
+======================= */
 .input-area {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
 
-input {
+input[type="text"] {
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 6px;
 }
 
+/* =======================
+   BUTTON GLOBAL
+======================= */
 button {
   padding: 10px 15px;
   border: none;
@@ -49,7 +82,9 @@ button:hover {
   background: #0056b3;
 }
 
-/* List */
+/* =======================
+   TASK LIST
+======================= */
 ul {
   padding: 0;
   margin: 0;
@@ -59,23 +94,69 @@ li {
   list-style: none;
   padding: 10px;
   border-bottom: 1px solid #eee;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  transition: 0.2s;
 }
 
-/* Delete button */
-li button {
+li:hover {
+  background: #f9f9f9;
+}
+
+/* =======================
+   LEFT SIDE (CHECKBOX + TEXT)
+======================= */
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Checkbox */
+li input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Text */
+li span {
+  text-align: left;
+}
+
+/* Completed */
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* =======================
+   DELETE BUTTON
+======================= */
+.delete-btn {
   background: red;
   padding: 5px 8px;
   font-size: 12px;
 }
 
-li button:hover {
+.delete-btn:hover {
   background: darkred;
 }
 
-/* Footer */
+/* =======================
+   EDIT INPUT
+======================= */
+.edit-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* =======================
+   FOOTER
+======================= */
 .footer {
   margin-top: 15px;
   font-size: 14px;
@@ -85,6 +166,9 @@ li button:hover {
   align-items: center;
 }
 
+/* =======================
+   FILTER BUTTONS
+======================= */
 .filters {
   display: flex;
   gap: 10px;
@@ -99,15 +183,18 @@ li button:hover {
   background: #ddd;
 }
 
+.filters button.active {
+  background: #007bff;
+  color: white;
+}
+
+/* =======================
+   CLEAR BUTTON
+======================= */
 #clear-completed {
   background: #6c757d;
 }
 
 #clear-completed:hover {
   background: #555;
-}
-
-.completed {
-  text-decoration: line-through;
-  color: gray;
 }

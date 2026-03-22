@@ -1,200 +1,104 @@
-/* =======================
-   GLOBAL
-======================= */
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
-/* =======================
-   CONTAINER
-======================= */
 .container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
   background: white;
-  padding: 25px;
-  border-radius: 12px;
-  width: 380px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-/* =======================
-   TITLE
-======================= */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.logo-icon {
-  font-size: 28px;
+  min-height: 100vh;
 }
 
 h1 {
-  margin: 0; /* penting supaya sejajar */
+  text-align: center;
 }
 
-.logo-icon {
-  transition: 0.3s;
-}
-
-.logo-icon:hover {
-  transform: scale(1.2) rotate(-10deg);
-}
-
-/* =======================
-   INPUT AREA
-======================= */
-.input-area {
+/* INPUT */
+.input-group {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
 
-input[type="text"] {
+.input-group input {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;
 }
 
-/* =======================
-   BUTTON GLOBAL
-======================= */
-button {
-  padding: 10px 15px;
-  border: none;
-  background: #007bff;
-  color: white;
-  border-radius: 6px;
+.input-group button {
+  padding: 12px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-button:hover {
-  background: #0056b3;
+/* FILTER */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-/* =======================
-   TASK LIST
-======================= */
+.filters button {
+  flex: 1;
+  padding: 8px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+.filters .active {
+  background: black;
+  color: white;
+}
+
+/* LIST */
 ul {
+  list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 li {
-  list-style: none;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-
-  transition: 0.2s;
+  background: #fafafa;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
 }
 
-li:hover {
-  background: #f9f9f9;
-}
-
-/* =======================
-   LEFT SIDE (CHECKBOX + TEXT)
-======================= */
-.task-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Checkbox */
-li input[type="checkbox"] {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-/* Text */
 li span {
-  text-align: left;
+  flex: 1;
+  margin-left: 10px;
+  word-break: break-word;
 }
 
-/* Completed */
 .completed {
   text-decoration: line-through;
   color: gray;
 }
 
-/* =======================
-   DELETE BUTTON
-======================= */
-.delete-btn {
-  background: red;
-  padding: 5px 8px;
-  font-size: 12px;
-}
-
-.delete-btn:hover {
-  background: darkred;
-}
-
-/* =======================
-   EDIT INPUT
-======================= */
-.edit-input {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* =======================
-   FOOTER
-======================= */
+/* FOOTER */
 .footer {
+  display: flex;
+  justify-content: space-between;
   margin-top: 15px;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
 }
 
-/* =======================
-   FILTER BUTTONS
-======================= */
-.filters {
-  display: flex;
-  gap: 10px;
-}
+/* MOBILE */
+@media (max-width: 480px) {
+  .input-group {
+    flex-direction: column;
+  }
 
-.filters button {
-  background: #eee;
-  color: #333;
-}
+  .input-group button {
+    width: 100%;
+  }
 
-.filters button:hover {
-  background: #ddd;
-}
-
-.filters button.active {
-  background: #007bff;
-  color: white;
-}
-
-/* =======================
-   CLEAR BUTTON
-======================= */
-#clear-completed {
-  background: #6c757d;
-}
-
-#clear-completed:hover {
-  background: #555;
+  .filters {
+    flex-direction: column;
+    gap: 5px;
+  }
 }

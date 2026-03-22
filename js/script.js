@@ -1,3 +1,5 @@
+try {
+
 let tasks = [];
 let filter = "all";
 
@@ -7,12 +9,15 @@ const list = document.getElementById("task-list");
 const taskCount = document.getElementById("task-count");
 const clearBtn = document.getElementById("clear-btn");
 
+// CEK ELEMENT
+if (!input || !button || !list || !taskCount || !clearBtn) {
+  console.error("HTML element not found!");
+}
+
 // LOAD
 function loadTasks() {
   const data = localStorage.getItem("tasks");
-  if (data) {
-    tasks = JSON.parse(data);
-  }
+  if (data) tasks = JSON.parse(data);
 }
 
 // SAVE
@@ -21,8 +26,8 @@ function saveTasks() {
 }
 
 // ADD
-button.addEventListener("click", addTask);
-input.addEventListener("keypress", (e) => {
+button?.addEventListener("click", addTask);
+input?.addEventListener("keypress", (e) => {
   if (e.key === "Enter") addTask();
 });
 
@@ -72,7 +77,7 @@ document.querySelectorAll(".filters button").forEach((btn) => {
 });
 
 // CLEAR
-clearBtn.addEventListener("click", () => {
+clearBtn?.addEventListener("click", () => {
   tasks = [];
   saveTasks();
   renderTasks();
@@ -80,6 +85,8 @@ clearBtn.addEventListener("click", () => {
 
 // RENDER
 function renderTasks() {
+  if (!list) return;
+
   list.innerHTML = "";
 
   let filtered = tasks;
@@ -113,11 +120,16 @@ function renderTasks() {
     list.appendChild(li);
   });
 
-  // COUNT
   const activeCount = tasks.filter((t) => !t.completed).length;
-  taskCount.textContent = `${activeCount} tasks left`;
+  if (taskCount) {
+    taskCount.textContent = `${activeCount} tasks left`;
+  }
 }
 
 // INIT
 loadTasks();
 renderTasks();
+
+} catch (err) {
+  console.error("APP ERROR:", err);
+}
